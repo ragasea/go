@@ -1,0 +1,76 @@
+Here’s the complete code in a single HTML file:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle</title>
+    <style>
+        /* Light mode styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+    <p>Welcome to the website with Dark Mode functionality!</p>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check if dark mode is saved in local storage
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            // Save the mode to local storage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>
+
+How It Works:
+
+1. CSS Styling: The <style> block in the <head> contains the light and dark mode styles.
+
+
+2. JavaScript: The <script> block handles the toggle functionality and saves user preferences in localStorage.
+
+
+3. Single File: No external files are needed; everything is self-contained.
+
+
+
+Simply save this file with an .html extension (e.g., dark_mode_toggle.html) and open it in a browser.
